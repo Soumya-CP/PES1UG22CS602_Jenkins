@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Building the application..."
-                    g++ -o PES1UG22CS602-1 Soumya_CS60.cpp
+                    g++ -o PES1UG22CS602-1 Soumya_CS602.cpp
                     echo "Build stage completed."
                 '''
             }
