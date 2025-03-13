@@ -1,41 +1,43 @@
 pipeline {
     agent any
-
+   
     stages {
         stage('Build') {
             steps {
-                script {
-                    sh '''
-                    cd $WORKSPACE  # Go to Jenkins workspace
-                    pwd
-                    ls -la  # Debugging: Check files
-                    g++ -o PES1UG22CS602-1 PES1UG22CS602_Soumya-C-P.cpp
-                    '''
-                }
+                sh '''
+                    echo "Building the application..."
+                    g++ -o PES1UG22CS602-1 main.cpp
+                    echo "Build stage completed."
+                '''
             }
         }
-
+       
         stage('Test') {
             steps {
-                script {
-                    sh './PES1UG22CS602-1'
-                }
+                sh '''
+                    echo "Testing the application..."
+                    ./PES1UG22CS602-1
+                    echo "Test stage completed."
+                '''
             }
         }
-
-        stage('Deploy') {
+       
+        stage('Deploy {
             steps {
-                script {
-                    echo 'Deploying application...'
-                    // Add actual deployment commands (e.g., SCP, Docker, Kubernetes, etc.)
-                }
+                sh '''
+                    echo "Deploying the application..."
+                    echo "Deployment completed successfully."
+                '''
             }
         }
     }
-
+   
     post {
         failure {
             echo 'Pipeline failed'
+        }
+        success {
+            echo 'Pipeline completed successfully'
         }
     }
 }
