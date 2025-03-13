@@ -6,7 +6,9 @@ pipeline {
             steps {
                 script {
                     sh '''
-                    cd /path/to/your/main/directory
+                    cd $WORKSPACE  # Go to Jenkins workspace
+                    pwd
+                    ls -la  # Debugging: Check files
                     g++ -o PES1UG22CS602-1 PES1UG22CS602_Soumya-C-P.cpp
                     '''
                 }
