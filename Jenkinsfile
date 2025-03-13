@@ -5,7 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'g++ -o PES1UG22CS602-1 PES1UG22CS602_Soumya-C-P.cpp'
+                    sh '''
+                    cd /path/to/your/main/directory
+                    g++ -o PES1UG22CS602-1 PES1UG22CS602_Soumya-C-P.cpp
+                    '''
                 }
             }
         }
