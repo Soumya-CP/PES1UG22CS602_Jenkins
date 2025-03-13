@@ -19,7 +19,7 @@ pipeline {
                     ./PES1UG22CS602-1
                     echo "Test stage completed."
                 '''
-            
+            }
         }
 
         stage('Deploy') { 
